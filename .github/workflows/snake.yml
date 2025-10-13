@@ -2,11 +2,14 @@ name: Generate Snake Animation 🐍
 
 on:
   schedule:
-    - cron: "0 0 * * *"  # jalan tiap tengah malam UTC
+    - cron: "0 0 * * *" # jalan tiap tengah malam UTC
   workflow_dispatch:
   push:
     branches:
       - main
+
+permissions:
+  contents: write
 
 jobs:
   generate:
@@ -19,7 +22,7 @@ jobs:
       - name: Generate Snake Animation
         uses: Platane/snk@v3
         with:
-          github_user_name: Geraldoafrinandi  
+          github_user_name: Geraldoafrinandi
           outputs: |
             dist/snake.svg
             dist/snake-dark.svg?palette=github-dark
