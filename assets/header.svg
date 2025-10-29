@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="220" viewBox="0 0 1200 220" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <!-- Gradien warna utama -->
+    <!-- Gradasi warna -->
     <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#3B82F6"/>
       <stop offset="50%" stop-color="#8B5CF6"/>
       <stop offset="100%" stop-color="#EC4899"/>
     </linearGradient>
 
-    <!-- Efek glow -->
+    <!-- Glow filter -->
     <filter id="glow">
       <feGaussianBlur stdDeviation="3" result="blur"/>
       <feMerge>
@@ -16,102 +16,76 @@
       </feMerge>
     </filter>
 
-    <!-- Bentuk bintang -->
-    <symbol id="star" viewBox="0 0 24 24">
-      <polygon points="12,2 14.5,8.5 22,9 16,13.5 18,21 12,17 6,21 8,13.5 2,9 9.5,8.5"
-               fill="white" filter="url(#glow)" />
+    <!-- Sparkle bentuk bintang -->
+    <symbol id="sparkle" viewBox="0 0 20 20">
+      <polygon points="10,0 12,7 20,10 12,13 10,20 8,13 0,10 8,7" fill="white" opacity="0.9"/>
     </symbol>
 
-    <style>
-      /* Ombak halus */
-      @keyframes smoothWave {
-        0% { d: path("M0 150 Q300 100 600 150 T1200 150 V220 H0 Z"); }
-        50% { d: path("M0 150 Q300 120 600 130 T1200 150 V220 H0 Z"); }
-        100% { d: path("M0 150 Q300 100 600 150 T1200 150 V220 H0 Z"); }
-      }
-
-      /* Bintang berkelip */
-      @keyframes twinkle {
-        0%, 100% { opacity: 0.2; }
-        50% { opacity: 1; }
-      }
-
-      /* Meteor jatuh */
-      @keyframes meteor {
-        0% {
-          transform: translate(0, 0) rotate(45deg);
-          opacity: 1;
-        }
-        100% {
-          transform: translate(600px, 300px) rotate(45deg);
-          opacity: 0;
-        }
-      }
-
-      .twinkle {
-        animation: twinkle 2.5s ease-in-out infinite;
-      }
-
-      .meteor {
-        animation: meteor 4s linear infinite;
-      }
-
-      /* Acak delay agar efek alami */
-      .meteor:nth-child(1) { animation-delay: 0s; transform: translate(100px, 10px); }
-      .meteor:nth-child(2) { animation-delay: 1.5s; transform: translate(400px, 0px); }
-      .meteor:nth-child(3) { animation-delay: 3s; transform: translate(800px, 20px); }
-      .meteor:nth-child(4) { animation-delay: 4.5s; transform: translate(200px, 30px); }
-      .meteor:nth-child(5) { animation-delay: 6s; transform: translate(600px, 10px); }
-
-      .twinkle:nth-child(1) { animation-delay: 0.2s; }
-      .twinkle:nth-child(2) { animation-delay: 1s; }
-      .twinkle:nth-child(3) { animation-delay: 1.8s; }
-      .twinkle:nth-child(4) { animation-delay: 2.3s; }
-      .twinkle:nth-child(5) { animation-delay: 3.1s; }
-      .twinkle:nth-child(6) { animation-delay: 3.7s; }
-      .twinkle:nth-child(7) { animation-delay: 4.2s; }
-      .twinkle:nth-child(8) { animation-delay: 4.9s; }
-    </style>
+    <!-- Animasi teks berkilau -->
+    <linearGradient id="textGradient" gradientTransform="rotate(20)">
+      <stop offset="0%" stop-color="#60A5FA">
+        <animate attributeName="offset" values="-1; 1" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="50%" stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#F472B6"/>
+    </linearGradient>
   </defs>
 
-  <!-- Latar belakang -->
+  <!-- Background -->
   <rect width="1200" height="220" fill="#0D1117"/>
 
-  <!-- Bintang jatuh (meteor) -->
-  <use href="#star" class="meteor" x="0" y="0" width="10" height="10"/>
-  <use href="#star" class="meteor" x="200" y="0" width="10" height="10"/>
-  <use href="#star" class="meteor" x="400" y="0" width="10" height="10"/>
-  <use href="#star" class="meteor" x="600" y="0" width="10" height="10"/>
-  <use href="#star" class="meteor" x="800" y="0" width="10" height="10"/>
-
-  <!-- Bintang berkelip -->
-  <use href="#star" class="twinkle" x="100" y="50" width="6" height="6"/>
-  <use href="#star" class="twinkle" x="250" y="80" width="7" height="7"/>
-  <use href="#star" class="twinkle" x="400" y="40" width="5" height="5"/>
-  <use href="#star" class="twinkle" x="550" y="60" width="6" height="6"/>
-  <use href="#star" class="twinkle" x="700" y="90" width="5" height="5"/>
-  <use href="#star" class="twinkle" x="850" y="50" width="8" height="8"/>
-  <use href="#star" class="twinkle" x="950" y="70" width="5" height="5"/>
-  <use href="#star" class="twinkle" x="1100" y="40" width="6" height="6"/>
-
-  <!-- Ombak lembut -->
-  <path d="M0 150 Q300 100 600 150 T1200 150 V220 H0 Z" fill="url(#grad)" opacity="0.25">
+  <!-- Ombak animasi halus -->
+  <path id="wave" d="M0 160 Q300 120 600 160 T1200 160 L1200 220 L0 220 Z" fill="url(#grad)" opacity="0.25">
     <animate attributeName="d" dur="8s" repeatCount="indefinite"
       values="
-        M0 150 Q300 100 600 150 T1200 150 V220 H0 Z;
-        M0 150 Q300 120 600 130 T1200 150 V220 H0 Z;
-        M0 150 Q300 100 600 150 T1200 150 V220 H0 Z
-      " />
+        M0 160 Q300 120 600 160 T1200 160 L1200 220 L0 220 Z;
+        M0 155 Q300 130 600 150 T1200 155 L1200 220 L0 220 Z;
+        M0 160 Q300 120 600 160 T1200 160 L1200 220 L0 220 Z" />
   </path>
 
-  <!-- Teks utama -->
-  <text x="50%" y="50%" text-anchor="middle" font-family="Poppins, monospace"
-        font-size="38" font-weight="600" fill="url(#grad)" filter="url(#glow)">
+  <!-- Banyak bintang jatuh -->
+  <g id="stars">
+    <!-- Hasilkan 15 bintang -->
+    <use href="#sparkle" x="100" y="20" width="8" height="8">
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="300 220" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0" dur="6s" repeatCount="indefinite"/>
+    </use>
+    <use href="#sparkle" x="300" y="10" width="10" height="10">
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="400 220" dur="7s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0" dur="7s" repeatCount="indefinite"/>
+    </use>
+    <use href="#sparkle" x="600" y="30" width="9" height="9">
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="-300 220" dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0" dur="8s" repeatCount="indefinite"/>
+    </use>
+    <use href="#sparkle" x="900" y="15" width="7" height="7">
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="-400 220" dur="9s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0" dur="9s" repeatCount="indefinite"/>
+    </use>
+
+    <!-- Tambahan bintang acak -->
+    <use href="#sparkle" x="200" y="40" width="6" height="6">
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="200 220" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0" dur="5s" repeatCount="indefinite"/>
+    </use>
+    <use href="#sparkle" x="800" y="60" width="8" height="8">
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="-150 220" dur="10s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="1;0" dur="10s" repeatCount="indefinite"/>
+    </use>
+  </g>
+
+  <!-- Teks utama dengan animasi fade-in dan kilau -->
+  <text x="50%" y="52%" text-anchor="middle"
+        font-family="Poppins, monospace" font-size="38" font-weight="600"
+        fill="url(#textGradient)" filter="url(#glow)" opacity="0">
     Geraldo Afrinandi Persada
+    <animate attributeName="opacity" from="0" to="1" dur="3s" fill="freeze"/>
   </text>
 
-  <text x="50%" y="75%" text-anchor="middle" font-family="Poppins, monospace"
-        font-size="16" fill="#C9D6FF" opacity="0.9">
-    Frontend Developer ✦ Design &amp; System Enthusiast
+  <!-- Subteks dengan fade dan gerak naik -->
+  <text x="50%" y="78%" text-anchor="middle"
+        font-family="Poppins, monospace" font-size="16" fill="#C9D6FF" opacity="0.9">
+    Frontend Developer &amp; App Developer
+    <animateTransform attributeName="transform" type="translate" from="0 15" to="0 0" dur="3s" fill="freeze"/>
   </text>
 </svg>
