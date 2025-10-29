@@ -43,7 +43,7 @@
         font-family="JetBrains Mono, monospace" font-size="16" fill="#C9D6FF" opacity="0.95">
     <tspan> Frontend Developer</tspan>
     <tspan dx="8"> | </tspan>
-    <tspan>System &amp; App Developer</tspan>
+    <tspan> App Developer</tspan>
     <tspan dx="8"> | </tspan>
     <tspan>System &amp; Design Enthusiast</tspan>
     <animate attributeName="y" values="78%;76%;78%" dur="3.5s" repeatCount="indefinite"/>
