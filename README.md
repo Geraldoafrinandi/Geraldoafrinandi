@@ -1,11 +1,15 @@
-<!-- ⚡ FUTURISTIC GRADIENT PROFILE -->
-<h1 align="center" style="font-size: 42px;">
+
+<p align="center">
+  <img src="./assets/header.svg" alt="Header: Geraldo Afrinandi Persada" width="100%" />
+</p>
+
+<h1 align="center" style="font-size: 42px; margin-top: -10px;">
   <span style="background: linear-gradient(90deg, #60A5FA, #8B5CF6); -webkit-background-clip: text; color: transparent;">
-    🚀 Geraldo Afrinandi Persada
+     Geraldo Afrinandi Persada
   </span>
 </h1>
 
-<h3 align="center">💻 Frontend Developer | System & Design Enthusiast</h3>
+<h3 align="center">💻 Frontend Developer | App Developer |System & Design Enthusiast</h3>
 
 <p align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&size=18&duration=2500&pause=800&color=8B5CF6&center=true&vCenter=true&width=500&lines=Crafting+Experiences+that+Matter.;Flutter+%7C+Laravel+%7C+Node.js;Passionate+about+Clean+Architecture" />
@@ -29,8 +33,8 @@
 
 ### 📈 GitHub Overview  
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Geraldoafrinandi&show_icons=true&theme=radical&hide_border=true" width="48%"/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Geraldoafrinandi&theme=radical&hide_border=true" width="48%"/>
+  <img src="https://github-readme-stats.vercel.app/api?username=Geraldoafrinandi&show_icons=true&theme=radical&hide_border=true" width="48%" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Geraldoafrinandi&theme=radical&hide_border=true" width="48%" />
 </p>
 
 ---
@@ -52,4 +56,10 @@
   <a href="https://instagram.com/geraldoafrinandi_">
     <img src="https://img.shields.io/badge/Instagram-6366F1?style=for-the-badge&logo=instagram&logoColor=white"/>
   </a>
+</p>
+
+---
+
+<p align="center">
+  <img src="./assets/footer.svg" alt="Footer wave animation" width="100%" />
 </p>
