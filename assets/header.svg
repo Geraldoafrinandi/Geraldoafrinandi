@@ -1,51 +1,117 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="200" viewBox="0 0 1200 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Header: Geraldo Afrinandi Persada">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="220" viewBox="0 0 1200 220" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <linearGradient id="g" x1="0%" y1="50%" x2="100%" y2="50%">
-      <stop offset="0%" stop-color="#60A5FA">
-        <animate attributeName="stop-color" values="#60A5FA;#8B5CF6;#EC4899;#22D3EE;#60A5FA" dur="6s" repeatCount="indefinite"/>
-      </stop>
-      <stop offset="50%" stop-color="#8B5CF6">
-        <animate attributeName="stop-color" values="#8B5CF6;#EC4899;#22D3EE;#60A5FA;#8B5CF6" dur="6s" repeatCount="indefinite"/>
-      </stop>
-      <stop offset="100%" stop-color="#EC4899">
-        <animate attributeName="stop-color" values="#EC4899;#22D3EE;#60A5FA;#8B5CF6;#EC4899" dur="6s" repeatCount="indefinite"/>
-      </stop>
+    <!-- Gradien warna utama -->
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="50%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#EC4899"/>
     </linearGradient>
 
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="6" result="blur"/>
+    <!-- Efek glow -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+
+    <!-- Bentuk bintang -->
+    <symbol id="star" viewBox="0 0 24 24">
+      <polygon points="12,2 14.5,8.5 22,9 16,13.5 18,21 12,17 6,21 8,13.5 2,9 9.5,8.5"
+               fill="white" filter="url(#glow)" />
+    </symbol>
+
+    <style>
+      /* Ombak halus */
+      @keyframes smoothWave {
+        0% { d: path("M0 150 Q300 100 600 150 T1200 150 V220 H0 Z"); }
+        50% { d: path("M0 150 Q300 120 600 130 T1200 150 V220 H0 Z"); }
+        100% { d: path("M0 150 Q300 100 600 150 T1200 150 V220 H0 Z"); }
+      }
+
+      /* Bintang berkelip */
+      @keyframes twinkle {
+        0%, 100% { opacity: 0.2; }
+        50% { opacity: 1; }
+      }
+
+      /* Meteor jatuh */
+      @keyframes meteor {
+        0% {
+          transform: translate(0, 0) rotate(45deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translate(600px, 300px) rotate(45deg);
+          opacity: 0;
+        }
+      }
+
+      .twinkle {
+        animation: twinkle 2.5s ease-in-out infinite;
+      }
+
+      .meteor {
+        animation: meteor 4s linear infinite;
+      }
+
+      /* Acak delay agar efek alami */
+      .meteor:nth-child(1) { animation-delay: 0s; transform: translate(100px, 10px); }
+      .meteor:nth-child(2) { animation-delay: 1.5s; transform: translate(400px, 0px); }
+      .meteor:nth-child(3) { animation-delay: 3s; transform: translate(800px, 20px); }
+      .meteor:nth-child(4) { animation-delay: 4.5s; transform: translate(200px, 30px); }
+      .meteor:nth-child(5) { animation-delay: 6s; transform: translate(600px, 10px); }
+
+      .twinkle:nth-child(1) { animation-delay: 0.2s; }
+      .twinkle:nth-child(2) { animation-delay: 1s; }
+      .twinkle:nth-child(3) { animation-delay: 1.8s; }
+      .twinkle:nth-child(4) { animation-delay: 2.3s; }
+      .twinkle:nth-child(5) { animation-delay: 3.1s; }
+      .twinkle:nth-child(6) { animation-delay: 3.7s; }
+      .twinkle:nth-child(7) { animation-delay: 4.2s; }
+      .twinkle:nth-child(8) { animation-delay: 4.9s; }
+    </style>
   </defs>
 
-  <g opacity="0.12">
-    <ellipse cx="300" cy="60" rx="380" ry="60" fill="#8B5CF6">
-      <animate attributeName="cx" values="200;350;250;200" dur="12s" repeatCount="indefinite"/>
-      <animate attributeName="rx" values="300;420;300" dur="12s" repeatCount="indefinite"/>
-    </ellipse>
-    <ellipse cx="900" cy="140" rx="420" ry="70" fill="#EC4899">
-      <animate attributeName="cx" values="900;750;980;900" dur="14s" repeatCount="indefinite"/>
-      <animate attributeName="rx" values="320;480;320" dur="14s" repeatCount="indefinite"/>
-    </ellipse>
-  </g>
+  <!-- Latar belakang -->
+  <rect width="1200" height="220" fill="#0D1117"/>
 
-  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
-        font-family="JetBrains Mono, monospace" font-size="36" font-weight="700"
-        fill="url(#g)" filter="url(#glow)">
-     Geraldo Afrinandi Persada
+  <!-- Bintang jatuh (meteor) -->
+  <use href="#star" class="meteor" x="0" y="0" width="10" height="10"/>
+  <use href="#star" class="meteor" x="200" y="0" width="10" height="10"/>
+  <use href="#star" class="meteor" x="400" y="0" width="10" height="10"/>
+  <use href="#star" class="meteor" x="600" y="0" width="10" height="10"/>
+  <use href="#star" class="meteor" x="800" y="0" width="10" height="10"/>
+
+  <!-- Bintang berkelip -->
+  <use href="#star" class="twinkle" x="100" y="50" width="6" height="6"/>
+  <use href="#star" class="twinkle" x="250" y="80" width="7" height="7"/>
+  <use href="#star" class="twinkle" x="400" y="40" width="5" height="5"/>
+  <use href="#star" class="twinkle" x="550" y="60" width="6" height="6"/>
+  <use href="#star" class="twinkle" x="700" y="90" width="5" height="5"/>
+  <use href="#star" class="twinkle" x="850" y="50" width="8" height="8"/>
+  <use href="#star" class="twinkle" x="950" y="70" width="5" height="5"/>
+  <use href="#star" class="twinkle" x="1100" y="40" width="6" height="6"/>
+
+  <!-- Ombak lembut -->
+  <path d="M0 150 Q300 100 600 150 T1200 150 V220 H0 Z" fill="url(#grad)" opacity="0.25">
+    <animate attributeName="d" dur="8s" repeatCount="indefinite"
+      values="
+        M0 150 Q300 100 600 150 T1200 150 V220 H0 Z;
+        M0 150 Q300 120 600 130 T1200 150 V220 H0 Z;
+        M0 150 Q300 100 600 150 T1200 150 V220 H0 Z
+      " />
+  </path>
+
+  <!-- Teks utama -->
+  <text x="50%" y="50%" text-anchor="middle" font-family="Poppins, monospace"
+        font-size="38" font-weight="600" fill="url(#grad)" filter="url(#glow)">
+    Geraldo Afrinandi Persada
   </text>
 
-  <text x="50%" y="76%" dominant-baseline="middle" text-anchor="middle"
-        font-family="JetBrains Mono, monospace" font-size="16" fill="#C9D6FF" opacity="0.95">
-    <tspan> Frontend Developer</tspan>
-    <tspan dx="8"> | </tspan>
-    <tspan> App Developer</tspan>
-    <tspan dx="8"> | </tspan>
-    <tspan>System &amp; Design Enthusiast</tspan>
-    <animate attributeName="y" values="78%;76%;78%" dur="3.5s" repeatCount="indefinite"/>
+  <text x="50%" y="75%" text-anchor="middle" font-family="Poppins, monospace"
+        font-size="16" fill="#C9D6FF" opacity="0.9">
+    Frontend Developer ✦ Design &amp; System Enthusiast
   </text>
 </svg>
