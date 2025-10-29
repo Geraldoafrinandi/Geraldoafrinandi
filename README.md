@@ -9,7 +9,7 @@
   </span>
 </h1>
 
-<h3 align="center">💻 Frontend Developer | App Developer |System & Design Enthusiast</h3>
+<h3 align="center">💻 Frontend Developer | App Developer </h3>
 
 <p align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&size=18&duration=2500&pause=800&color=8B5CF6&center=true&vCenter=true&width=500&lines=Crafting+Experiences+that+Matter.;Flutter+%7C+Laravel+%7C+Node.js;Passionate+about+Clean+Architecture" />
